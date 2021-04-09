@@ -19,8 +19,10 @@ let shouldNavigateAway = false;
 
 async function initExercise() {
   let workout;
-
-  if (location.search.split("=")[1] === undefined) {
+  var url = window.location.href;
+  var page = url.substring(url.lastIndexOf('/') + 1);
+  console.log(page)
+  if (page === "exercise") {
     workout = await API.createWorkout()
     console.log(workout)
   }
